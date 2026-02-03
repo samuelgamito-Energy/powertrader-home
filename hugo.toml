@@ -20,7 +20,7 @@ theme = "PaperMod"
 
         [[params.profileMode.buttons]]
             name = "⚡ EnergyFlash (Informe Diario)"
-            url = "https://energyflash.powertrader.com"
+            url = "https://energyflash.powertrader.es"
 
         [[params.profileMode.buttons]]
             name = "📊 Análisis Semanal (Pronto)"
