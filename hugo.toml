@@ -30,9 +30,5 @@ theme = "PaperMod"
             name = "🏠 Ahorro Doméstico (Pronto)"
             url = "#"
 
-    [params.socialIcons]
-        github = "https://github.com/samuelgamito-Energy"
-        email = "mailto:contacto@powertrader.com"
-
 [params.assets]
     disableHLJS = true
