@@ -1,0 +1,38 @@
+baseURL = "https://www.powertrader.com/" 
+languageCode = "es-es"
+title = "PowerTrader Universe"
+theme = "PaperMod"
+
+[params]
+    env = "production"
+    description = "Inteligencia Energética y Mercados"
+    author = "PowerTrader"
+    defaultTheme = "dark"
+
+    [params.profileMode]
+        enabled = true
+        title = "PowerTrader"
+        subtitle = "Inteligencia Artificial aplicada al Mercado Energético"
+        imageUrl = "https://cdn-icons-png.flaticon.com/512/6633/6633256.png" 
+        imageTitle = "PowerTrader"
+        imageWidth = 120
+        imageHeight = 120
+
+        [[params.profileMode.buttons]]
+            name = "⚡ EnergyFlash (Informe Diario)"
+            url = "https://energyflash.powertrader.com"
+
+        [[params.profileMode.buttons]]
+            name = "📊 Análisis Semanal (Pronto)"
+            url = "#"
+
+        [[params.profileMode.buttons]]
+            name = "🏠 Ahorro Doméstico (Pronto)"
+            url = "#"
+
+    [params.socialIcons]
+        github = "https://github.com/samuelgamito-Energy"
+        email = "mailto:contacto@powertrader.com"
+
+[params.assets]
+    disableHLJS = true
