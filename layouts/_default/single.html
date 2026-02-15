@@ -28,26 +28,24 @@
     </div>
     {{- end }}
   </header>
+
   {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
+  
   {{- if (.Param "ShowToc") }}
   {{- partial "toc.html" . }}
   {{- end }}
 
   {{- if .Content }}
-<div class="post-content">
+  <div class="post-content">
     {{- if not (.Param "disableAnchoredHeadings") }}
     {{- partial "anchored_headings.html" .Content -}}
     {{- else }}{{ .Content }}{{ end }}
   </div>
+  {{- end }}
 
   <hr style="margin: 3rem 0 1rem 0; border: none; border-top: 1px solid var(--border);">
   {{- partial "newsletter.html" . -}}
-  <footer class="post-footer">
-    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-    <ul class="post-tags">
-  {{- end }}
-
   <footer class="post-footer">
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
     <ul class="post-tags">
