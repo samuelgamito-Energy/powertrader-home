@@ -1,6 +1,6 @@
-baseURL = "https://www.powertrader.es/" 
+baseURL = "https://powertrader.es/" 
 languageCode = "es-es"
-title = "PowerTrader Universe"
+title = ""
 theme = "PaperMod"
 
 [params]
