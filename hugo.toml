@@ -35,3 +35,8 @@ theme = "PaperMod"
     
 [markup.goldmark.renderer]
 unsafe = true
+
+[sitemap]
+  changefreq = "daily"
+  priority = 0.8
+  filename = "sitemap.xml"
