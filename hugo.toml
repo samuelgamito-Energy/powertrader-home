@@ -38,9 +38,9 @@ theme = "PaperMod"
     safari_pinned_tab = "/favicon.svg"
 
 [params.label]
-    text = "PowerTrader" # Este es el texto que saldrá al lado del logo
+    text = "" # Este es el texto que saldrá al lado del logo
     icon = "/logo.svg" # Ruta a tu archivo en la carpeta static/
-    iconHeight = 30 # Tamaño del logo en píxeles (30-35 es ideal para que quede elegante)
+    iconHeight = 60 # Tamaño del logo en píxeles (30-35 es ideal para que quede elegante)
     
 [markup.goldmark.renderer]
 unsafe = true
