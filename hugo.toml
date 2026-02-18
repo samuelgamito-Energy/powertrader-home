@@ -1,4 +1,4 @@
-baseURL = "https://www.powertrader.com/" 
+baseURL = "https://www.powertrader.es/" 
 languageCode = "es-es"
 title = "PowerTrader Universe"
 theme = "PaperMod"
