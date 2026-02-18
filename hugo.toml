@@ -8,6 +8,8 @@ theme = "PaperMod"
     description = "Inteligencia Energética y Mercados"
     author = "PowerTrader"
     defaultTheme = "dark"
+    images = ["/social_profile.png"]
+    
 
     [params.profileMode]
         enabled = true
@@ -32,6 +34,13 @@ theme = "PaperMod"
 
 [params.assets]
     disableHLJS = true
+    favicon = "/favicon.svg"
+    safari_pinned_tab = "/favicon.svg"
+
+[params.label]
+    text = "PowerTrader" # Este es el texto que saldrá al lado del logo
+    icon = "/logo.svg" # Ruta a tu archivo en la carpeta static/
+    iconHeight = 30 # Tamaño del logo en píxeles (30-35 es ideal para que quede elegante)
     
 [markup.goldmark.renderer]
 unsafe = true
