@@ -1,6 +1,6 @@
 baseURL = "https://powertrader.es/" 
 languageCode = "es-es"
-title = "Powertrader"
+title = "Universe"
 theme = "PaperMod"
 
 [params]
@@ -13,7 +13,7 @@ theme = "PaperMod"
 
     [params.profileMode]
         enabled = true
-        title = "PowerTrader"
+        title = ""
         subtitle = "Inteligencia Artificial aplicada al Mercado Energético"
         imageUrl = "/logo.svg" # Asegúrate de poner el nombre exacto de tu archivo de la carpeta static/
         imageTitle = "PowerTrader Logo"
