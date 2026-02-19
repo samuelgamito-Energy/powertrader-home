@@ -17,9 +17,9 @@ theme = "PaperMod"
         subtitle = "Inteligencia Artificial aplicada al Mercado Energético"
         imageUrl = "/social_profile_transparente.svg" # Asegúrate de poner el nombre exacto de tu archivo de la carpeta static/
         imageTitle = "PowerTrader Logo"
-        imageWidth = 300 # Como tu logo es alargado, ponle más anchura
+        imageWidth = 600 # Como tu logo es alargado, ponle más anchura
         # imageHeight = 120 <-- BORRA esta línea para que no te aplaste el logo y mantenga su proporción original
-        imageHeight = 120
+        imageHeight = 240
 
         [[params.profileMode.buttons]]
             name = "⚡ EnergyFlash (Informe Diario)"
@@ -40,7 +40,7 @@ theme = "PaperMod"
 
 [params.label]
     text = "" # Este es el texto que saldrá al lado del logo
-    icon = "/logo.svg" # Ruta a tu archivo en la carpeta static/
+    icon = "/logo_transparente.svg" # Ruta a tu archivo en la carpeta static/
     iconHeight = 60 # Tamaño del logo en píxeles (30-35 es ideal para que quede elegante)
     
 [markup.goldmark.renderer]
