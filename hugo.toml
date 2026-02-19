@@ -15,9 +15,10 @@ theme = "PaperMod"
         enabled = true
         title = "PowerTrader"
         subtitle = "Inteligencia Artificial aplicada al Mercado Energético"
-        imageUrl = "https://cdn-icons-png.flaticon.com/512/6633/6633256.png" 
-        imageTitle = "PowerTrader"
-        imageWidth = 120
+        imageUrl = "/logo.svg" # Asegúrate de poner el nombre exacto de tu archivo de la carpeta static/
+        imageTitle = "PowerTrader Logo"
+        imageWidth = 300 # Como tu logo es alargado, ponle más anchura
+        # imageHeight = 120 <-- BORRA esta línea para que no te aplaste el logo y mantenga su proporción original
         imageHeight = 120
 
         [[params.profileMode.buttons]]
