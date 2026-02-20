@@ -13,10 +13,7 @@ theme = "PaperMod"
     [params.profileMode]
         enabled = true
         title = ""
-        subtitle = """
-          **Inteligencia Artificial aplicada al Mercado Energético**<br>
-          Plataforma automatizada para la monitorización de mercados (Brent, TTF, CO2) y actualidad de comercializadoras. Generación de informes estratégicos y podcasts diarios mediante IA.
-          """
+        subtitle = "Inteligencia Artificial aplicada al Mercado Energético"
         imageUrl = "/social_profile_transparente.svg" 
         imageTitle = "PowerTrader Logo"
         imageWidth = 900 # Como tu logo es alargado, ponle más anchura
