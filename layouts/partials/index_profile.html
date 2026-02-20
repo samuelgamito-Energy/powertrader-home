@@ -35,13 +35,32 @@
         {{- partial "social_icons.html" -}}
 
         {{- with .buttons }}
-        <div class="buttons">
+
+        <style>
+    .grid-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        width: 100%;
+        max-width: 700px; /* Controla el ancho máximo de las dos columnas */
+        margin: 0 auto;
+    }
+    /* En pantallas pequeñas (móviles), vuelve a 1 columna */
+    @media (max-width: 768px) {
+        .grid-buttons {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div class="buttons grid-buttons">
     {{- range . }}
     <a class="button" href="{{ trim .url " " }}" rel="noopener" title="{{ .name }}">
         <span class="button-inner">
             {{- if .icon }}
-           <img src="{{ .icon | relURL }}" alt="Logo de {{ .name }}" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
+            <img src="{{ .icon | relURL }}" alt="Logo" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
             {{- end }}
+            
             {{ .name }}
             
             {{- if (findRE "://" .url) }}&nbsp;
@@ -56,6 +75,7 @@
     </a>
     {{- end }}
 </div>
+        
         {{- end }}
     </div>
     {{- end}}
