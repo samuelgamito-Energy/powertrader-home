@@ -10,12 +10,14 @@ theme = "PaperMod"
     defaultTheme = "dark"
     images = ["/social_profile.png"]
     
-
     [params.profileMode]
         enabled = true
         title = ""
-        subtitle = "Inteligencia Artificial aplicada al Mercado Energético"
-        imageUrl = "/social_profile_transparente.svg" # Asegúrate de poner el nombre exacto de tu archivo de la carpeta static/
+        subtitle = """
+          **Inteligencia Artificial aplicada al Mercado Energético**<br>
+          Plataforma automatizada para la monitorización de mercados (Brent, TTF, CO2) y actualidad de comercializadoras. Generación de informes estratégicos y podcasts diarios mediante IA.
+          """
+        imageUrl = "/social_profile_transparente.svg" 
         imageTitle = "PowerTrader Logo"
         imageWidth = 900 # Como tu logo es alargado, ponle más anchura
         # imageHeight = 120 <-- BORRA esta línea para que no te aplaste el logo y mantenga su proporción original
