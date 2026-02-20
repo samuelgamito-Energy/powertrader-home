@@ -22,16 +22,28 @@ theme = "PaperMod"
         imageHeight = 360
 
         [[params.profileMode.buttons]]
-            name = "⚡ EnergyFlash (Informe Diario)"
-            url = "https://energyflash.powertrader.es"
-
-       [[params.profileMode.buttons]]
-            name = "📡 PowerRadar (Informe Semanal)" 
-            url = "https://radar.powertrader.es"
+          name = "EnergyFlash (Informe Diario)"
+          url = "https://energyflash.powertrader.es" 
 
         [[params.profileMode.buttons]]
-            name = "🏠 Ahorro Doméstico (Pronto)"
-            url = "#"
+          name = "PowerRadar (Informe Semanal)"
+          url = "https://powerradar.powertrader.es"
+
+        [[params.profileMode.buttons]]
+          name = "EnergyVision (Informe Mensual)"
+          url = "https://energyvision.powertrader.es"
+
+        [[params.profileMode.buttons]]
+          name = "PowerAhorro (Consejos de ahorro)"
+          url = "https://powerahorro.powertrader.es"
+
+        [[params.profileMode.buttons]]
+          name = "EnergyTech (Autoconsumo y Baterías)"
+          url = "https://energytech.powertrader.es"
+
+        [[params.profileMode.buttons]]
+          name = "ProductorSolar (Plantas Fotovoltaicas)"
+          url = "https://productorsolar.powertrader.es"
 
 [params.assets]
     disableHLJS = true
