@@ -37,7 +37,7 @@ theme = "PaperMod"
 
         [[params.profileMode.buttons]]
           name = "PowerAhorro (Consejos de ahorro)"
-          url = "https://powerahorro.powertrader.es"
+          url = "https://ahorro.powertrader.es"
           icon = "PowerAhorro.svg"
 
         [[params.profileMode.buttons]]
