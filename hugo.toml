@@ -11,6 +11,10 @@ theme = "PaperMod"
     defaultTheme = "dark"
     images = ["/social_profile.png"]
     
+    [params.social]
+        linkedin = "https://linkedin.com/company/power-trader"
+        x = "https://x.com/PowerSPTrader"
+    
     [params.profileMode]
         enabled = true
         title = ""
