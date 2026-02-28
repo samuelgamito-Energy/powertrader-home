@@ -3,7 +3,7 @@ title: "PowerTrader"
 ---
 
 <div style="background-color: #1a1a1a; border-left: 4px solid #F2A900; padding: 15px; margin-top: 30px; border-radius: 4px;">
-  <p style="margin: 0; color: #F2A900; font-size: 0.85em; text-transform: uppercase; font-weight: bold;">⚡ Última actualización: 2026-02-27</p>
-  <h3 style="margin: 5px 0; color: #ffffff;"><a href="https://energyflash.powertrader.es/posts/informe-2026-02-27/" target="_blank" style="text-decoration: none; color: #ffffff;">Eólica a la baja presiona el pool ibérico hasta 20,10 €/MWh</a></h3>
-  <p style="margin: 0; color: #cccccc; font-size: 0.9em;">El precio de la luz hoy cae un 30,95% en el mercado mayorista, situándose en 20,10 €/MWh, ante el fuerte descenso de la generación eólica. La solar fotovoltaica, con una cuota del 21,07%, presiona también los precios a la baja, marcando un 'capture price' de 4,36 €/MWh. El retroceso de la hidráulica también contribuye al descenso.</p>
+  <p style="margin: 0; color: #F2A900; font-size: 0.85em; text-transform: uppercase; font-weight: bold;">⚡ Última actualización: 2026-02-28</p>
+  <h3 style="margin: 5px 0; color: #ffffff;"><a href="https://energyflash.powertrader.es/posts/informe-2026-02-28/" target="_blank" style="text-decoration: none; color: #ffffff;">Solar y eólica lastran el OMIE hasta los 14,50 €/MWh</a></h3>
+  <p style="margin: 0; color: #cccccc; font-size: 0.9em;">El precio de la luz hoy se desploma un 34,71% en el mercado mayorista, hasta 14,50 €/MWh, lastrado por el bajo precio de la energía solar fotovoltaica (23,93% del mix) y el fuerte aumento de la generación eólica, que casi duplica su producción semanal. El gas natural en MIBGAS se reduce ligeramente, sin impacto apreciable en el precio OMIE.</p>
 </div>
