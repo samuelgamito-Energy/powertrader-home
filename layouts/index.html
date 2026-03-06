@@ -3,26 +3,53 @@
     {{- with .Site.Params.profileMode }}
     <div class="profile_inner">
         {{- if .imageUrl -}}
-        <img draggable="false" src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default "profile image" }}" title="{{ .imageTitle | default "profile image" }}"
-            height="{{ .imageHeight | default 150 }}" width="{{ .imageWidth | default 150 }}" />
+        <img draggable="false" src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default " profile image" }}"
+            title="{{ .imageTitle | default " profile image" }}" height="{{ .imageHeight | default 150 }}"
+            width="{{ .imageWidth | default 150 }}" />
         {{- end }}
         <h1>{{ .title | default site.Title | markdownify }}</h1>
         <span>{{ .subtitle | markdownify }}</span>
         {{- partial "social_icons.html" -}}
 
         {{- with .buttons }}
-        <div class="buttons">
+        <style>
+            .grid-buttons {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+                width: 100%;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            @media (max-width: 768px) {
+                .grid-buttons {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .btn-logo {
+                height: 48px;
+                width: auto;
+                max-width: 90%;
+                margin-bottom: 8px;
+            }
+
+            .btn-subtext {
+                font-size: 0.8rem;
+                opacity: 0.8;
+                font-weight: 500;
+            }
+        </style>
+        <div class="buttons grid-buttons">
             {{- range . }}
             <a class="button" href="{{ trim .url " " }}" rel="noopener" title="{{ .name }}">
-                <span class="button-inner">
-                    {{ .name }}
-                    {{- if (findRE "://" .url) }}&nbsp;
-                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="14" width="14">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
+                <span class="button-inner"
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 12px 0;">
+                    {{- if .icon }}
+                    <img src="{{ .icon | relURL }}" alt="{{ .name }}" class="btn-logo">
+                    {{- else }}
+                    <span class="btn-subtext">{{ .name }}</span>
                     {{- end }}
                 </span>
             </a>
