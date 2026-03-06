@@ -50,7 +50,7 @@ params:
   label:
     text: ""
     icon: "/logo.svg"
-    iconHeight: 32
+    iconHeight: 80
 
 markup:
   goldmark:
