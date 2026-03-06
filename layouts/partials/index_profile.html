@@ -20,13 +20,14 @@
         {{- $img = $img.Resize "150x150" }}
         {{- end }}
         {{- end }}
-        <img draggable="false" src="{{ $img.Permalink }}" alt="{{ site.Params.profileMode.imageTitle | default " profile
-            image" }}" title="{{ site.Params.profileMode.imageTitle }}"
+        <img draggable="false" src="{{ $img.Permalink }}"
+            alt="{{ site.Params.profileMode.imageTitle | default `profile image` }}"
+            title="{{ site.Params.profileMode.imageTitle }}"
             height="{{ site.Params.profileMode.imageHeight | default 150 }}"
             width="{{ site.Params.profileMode.imageWidth | default 150 }}" />
         {{- else }}
         <img draggable="false" src="{{ site.Params.profileMode.imageUrl | absURL }}"
-            alt="{{ site.Params.profileMode.imageTitle | default " profile image" }}"
+            alt="{{ site.Params.profileMode.imageTitle | default `profile image` }}"
             title="{{ site.Params.profileMode.imageTitle }}"
             height="{{ site.Params.profileMode.imageHeight | default 150 }}"
             width="{{ site.Params.profileMode.imageWidth | default 150 }}" />
