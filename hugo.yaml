@@ -20,10 +20,10 @@ params:
     enabled: true
     title: ""
     subtitle: "Inteligencia Artificial aplicada al Mercado Energético"
-    imageUrl: "/logo.svg"
+    imageUrl: "/social_profile_transparente.svg"
     imageTitle: "PowerTrader Logo"
-    imageWidth: 400
-    imageHeight: 120
+    imageWidth: 500
+    imageHeight: 200
     buttons:
       - name: "EnergyFlash (Informe Diario)"
         url: "https://energyflash.powertrader.es"
