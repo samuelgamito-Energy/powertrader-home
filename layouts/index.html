@@ -40,6 +40,17 @@
                 opacity: 0.8;
                 font-weight: 500;
             }
+
+            .grid-buttons .button {
+                background: transparent !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+
+            .grid-buttons .button:hover {
+                background: rgba(255, 255, 255, 0.05) !important;
+                /* Ligero resplandor al pasar el ratón para dar confirmación visual de que es clicable */
+            }
         </style>
         <div class="buttons grid-buttons">
             {{- range . }}
