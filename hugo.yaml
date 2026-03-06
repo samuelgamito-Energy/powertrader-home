@@ -1,0 +1,63 @@
+baseURL: "https://powertrader.es/"
+languageCode: "es-es"
+title: " "
+theme: "PaperMod"
+
+params:
+  env: "production"
+  description: "Inteligencia Energética y Mercados"
+  author: "PowerTrader"
+  disableThemeToggle: false
+  defaultTheme: "dark"
+  images:
+    - "/social_profile.png"
+  socialIcons:
+    - name: "linkedin"
+      url: "https://linkedin.com/company/power-trader"
+    - name: "x"
+      url: "https://x.com/PowerSPTrader"
+  profileMode:
+    enabled: true
+    title: ""
+    subtitle: "Inteligencia Artificial aplicada al Mercado Energético"
+    imageUrl: "/social_profile_transparente.svg"
+    imageTitle: "PowerTrader Logo"
+    imageWidth: 900
+    imageHeight: 360
+    buttons:
+      - name: "EnergyFlash (Informe Diario)"
+        url: "https://energyflash.powertrader.es"
+        icon: "EnergyFlash.svg"
+      - name: "PowerRadar (Informe Semanal)"
+        url: "https://Radar.powertrader.es"
+        icon: "PowerRadar.svg"
+      - name: "EnergyVision (Informe Mensual)"
+        url: "https://energyvision.powertrader.es"
+        icon: "EnergyVision.svg"
+      - name: "PowerAhorro (Consejos de ahorro)"
+        url: "https://ahorro.powertrader.es"
+        icon: "PowerAhorro.svg"
+      - name: "EnergyTech (Autoconsumo y Baterías)"
+        url: "https://energytech.powertrader.es"
+        icon: "Energytech.svg"
+      - name: "ProductorSolar (Plantas Fotovoltaicas)"
+        url: "https://solar.powertrader.es"
+        icon: "Productorsolar.svg"
+  assets:
+    disableHLJS: true
+    favicon: "/favicon.svg"
+    safari_pinned_tab: "/favicon.svg"
+  label:
+    text: ""
+    icon: "/logo_transparente.svg"
+    iconHeight: 60
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+sitemap:
+  changefreq: "daily"
+  priority: 0.8
+  filename: "sitemap.xml"
