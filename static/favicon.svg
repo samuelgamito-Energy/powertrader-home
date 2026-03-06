@@ -8,9 +8,11 @@
 
   <!-- Icon: Digital Wave Centered & Scaled -->
   <!-- Target Center: 32, 32. -->
-  <!-- Icon BBox Center approx: x=7.5, y=5 -->
+  <!-- Icon Local Center: x=12, y=10 -->
   <!-- Scale 0.75 -->
-  <g transform="translate(24.5, 27) scale(0.75)">
+  <!-- Tx = 32 - (12 * 0.75) = 23 -->
+  <!-- Ty = 32 - (10 * 0.75) = 24.5 -->
+  <g transform="translate(23, 24.5) scale(0.75)">
     <rect x="-20" y="5" width="4" height="10" class="rect-main" opacity="0.4"/>
     <rect x="-10" y="0" width="4" height="20" class="rect-main" opacity="0.6"/>
     <rect x="0" y="-10" width="4" height="40" class="rect-main" opacity="0.8"/>
