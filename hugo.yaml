@@ -20,29 +20,29 @@ params:
     enabled: true
     title: ""
     subtitle: "Inteligencia Artificial aplicada al Mercado Energético"
-    imageUrl: "/social_profile_transparente.svg"
+    imageUrl: "/logo.svg"
     imageTitle: "PowerTrader Logo"
-    imageWidth: 900
-    imageHeight: 360
+    imageWidth: 400
+    imageHeight: 120
     buttons:
       - name: "EnergyFlash (Informe Diario)"
         url: "https://energyflash.powertrader.es"
-        icon: "EnergyFlash.svg"
+        icon: "Energyflash.svg"
       - name: "PowerRadar (Informe Semanal)"
-        url: "https://Radar.powertrader.es"
+        url: "https://radar.powertrader.es"
         icon: "PowerRadar.svg"
       - name: "EnergyVision (Informe Mensual)"
         url: "https://energyvision.powertrader.es"
         icon: "EnergyVision.svg"
-      - name: "PowerAhorro (Consejos de ahorro)"
+      - name: "PowerAhorro (Consejos de Ahorro)"
         url: "https://ahorro.powertrader.es"
         icon: "PowerAhorro.svg"
       - name: "EnergyTech (Autoconsumo y Baterías)"
         url: "https://energytech.powertrader.es"
-        icon: "Energytech.svg"
-      - name: "ProductorSolar (Plantas Fotovoltaicas)"
+        icon: "EnergyTech.svg"
+      - name: "PowerSolar (Plantas Fotovoltaicas)"
         url: "https://solar.powertrader.es"
-        icon: "Productorsolar.svg"
+        icon: "ProductoSolar.svg"
   assets:
     disableHLJS: true
     favicon: "/favicon.svg"
