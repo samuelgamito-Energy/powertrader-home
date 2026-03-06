@@ -49,8 +49,8 @@ params:
     safari_pinned_tab: "/favicon.svg"
   label:
     text: ""
-    icon: "/logo_transparente.svg"
-    iconHeight: 60
+    icon: "/logo.svg"
+    iconHeight: 32
 
 markup:
   goldmark:
