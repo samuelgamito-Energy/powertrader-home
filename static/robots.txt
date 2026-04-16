@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /index.xml
+Disallow: /tags/
+Disallow: /categories/
+
+Sitemap: https://powertrader.es/sitemap.xml
