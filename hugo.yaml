@@ -1,6 +1,7 @@
 baseURL: "https://powertrader.es/"
 languageCode: "es-es"
-title: " "
+defaultContentLanguage: "es"
+title: "PowerTrader | Inteligencia Energética y Mercados"
 theme: "PaperMod"
 
 params:
@@ -26,22 +27,22 @@ params:
     imageHeight: 200
     buttons:
       - name: "EnergyFlash (Informe Diario)"
-        url: "https://energyflash.powertrader.es"
+        url: "https://energyflash.powertrader.es/"
         icon: "Energyflash.svg"
       - name: "PowerRadar (Informe Semanal)"
-        url: "https://radar.powertrader.es"
+        url: "https://radar.powertrader.es/"
         icon: "PowerRadar.svg"
       - name: "EnergyVision (Informe Mensual)"
-        url: "https://energyvision.powertrader.es"
+        url: "https://energyvision.powertrader.es/"
         icon: "EnergyVision.svg"
       - name: "PowerAhorro (Consejos de Ahorro)"
-        url: "https://ahorro.powertrader.es"
+        url: "https://ahorro.powertrader.es/"
         icon: "PowerAhorro.svg"
       - name: "EnergyTech (Autoconsumo y Baterías)"
-        url: "https://energytech.powertrader.es"
+        url: "https://energytech.powertrader.es/"
         icon: "EnergyTech.svg"
       - name: "PowerSolar (Plantas Fotovoltaicas)"
-        url: "https://solar.powertrader.es"
+        url: "https://solar.powertrader.es/"
         icon: "ProductoSolar.svg"
   assets:
     disableHLJS: true

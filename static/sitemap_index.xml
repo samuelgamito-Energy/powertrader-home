@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://powertrader.es/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://energyflash.powertrader.es/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://radar.powertrader.es/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://ahorro.powertrader.es/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://energyvision.powertrader.es/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://solar.powertrader.es/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://energytech.powertrader.es/sitemap.xml</loc>
+  </sitemap>
+</sitemapindex>
