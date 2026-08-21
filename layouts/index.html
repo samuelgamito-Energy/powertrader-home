@@ -124,6 +124,17 @@
         transition: var(--transition-base);
     }
 
+    .novelty-link::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 50%;
+        z-index: 2;
+    }
+
     .novelty-link:hover {
         color: #ffffff;
     }
@@ -377,18 +388,61 @@
     }
 
     @media (max-width: 1200px) {
-        .hero-wrapper-rel {
-            padding-bottom: 20px;
-        }
         .hero-aside-novelty {
-            position: relative;
-            right: auto;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
             top: auto;
             transform: none;
-            margin: 25px auto 10px auto;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(242, 169, 0, 0.95);
+            border: 2px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+            z-index: 1000;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-sizing: border-box;
         }
+
         .hero-aside-novelty:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
+            background: #ffffff;
+            border-color: var(--color-accent-amber);
+        }
+
+        .hero-aside-novelty .novelty-badge {
+            background: #111111;
+            color: var(--color-accent-amber);
+            font-size: 0.52rem;
+            font-weight: 800;
+            padding: 1px 5px;
+            margin-bottom: 4px;
+        }
+
+        .hero-aside-novelty .novelty-title {
+            font-size: 0.65rem;
+            color: #111111;
+            font-weight: 800;
+            margin-bottom: 2px;
+            line-height: 1.25;
+            padding: 0;
+        }
+
+        .hero-aside-novelty .novelty-link {
+            font-size: 0.62rem;
+            color: #111111;
+            font-weight: 700;
+        }
+
+        .hero-aside-novelty:hover .novelty-title,
+        .hero-aside-novelty:hover .novelty-link {
+            color: #111111;
         }
     }
 
