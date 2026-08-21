@@ -390,10 +390,10 @@
     @media (max-width: 1200px) {
         .hero-aside-novelty {
             position: fixed;
-            right: 20px;
-            bottom: 20px;
-            top: auto;
-            transform: none;
+            right: 12px;
+            top: 50%;
+            bottom: auto;
+            transform: translateY(-50%);
             width: 100px;
             height: 100px;
             border-radius: 50%;
@@ -411,7 +411,7 @@
         }
 
         .hero-aside-novelty:hover {
-            transform: scale(1.05);
+            transform: translateY(-50%) scale(1.05);
             background: #ffffff;
             border-color: var(--color-accent-amber);
         }
@@ -447,6 +447,59 @@
     }
 
     @media (max-width: 768px) {
+        /* Centrar logo, subtítulo e interruptor de luz en móvil */
+        .nav {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 12px !important;
+        }
+
+        .logo {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            text-align: center !important;
+            gap: 8px !important;
+        }
+
+        /* Centrar el enlace del logo (imagen + texto) */
+        .logo a {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 4px !important;
+        }
+
+        /* Bajar de tamaño y centrar el texto descriptivo del header */
+        .logo a span {
+            font-size: 0.82rem !important;
+            margin-left: 0 !important;
+            text-align: center !important;
+            display: block !important;
+        }
+
+        /* Ajustar el botón del sol/luna (theme-toggle) centrado */
+        .theme-toggle {
+            margin-left: 0 !important;
+            display: flex !important;
+            justify-content: center !important;
+        }
+
+        /* Alinear menús de navegación centrados en móvil */
+        #menu {
+            justify-content: center !important;
+            margin-top: 8px !important;
+            padding: 0 !important;
+        }
+
+        #menu li {
+            margin-inline-start: 12px !important;
+            margin-inline-end: 12px !important;
+        }
+
         .hero-title {
             font-size: 1.45rem;
             line-height: 1.5;
