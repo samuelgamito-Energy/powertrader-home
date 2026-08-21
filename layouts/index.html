@@ -1,82 +1,576 @@
 {{- define "main" }}
-<div class="profile">
-    {{- with .Site.Params.profileMode }}
-    <div class="profile_inner">
-        {{- if .imageUrl -}}
-        <img draggable="false" src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle | default " profile image" }}"
-            title="{{ .imageTitle | default " profile image" }}" height="{{ .imageHeight | default 150 }}"
-            width="{{ .imageWidth | default 150 }}" />
-        {{- end }}
-        <h1>{{ .title | default site.Title | markdownify }}</h1>
-        <span>{{ .subtitle | markdownify }}</span>
-        {{- partial "social_icons.html" -}}
+<style>
+    /* Estilos del Dashboard principal y variables de diseño */
+    :root {
+        --color-bg: #1d1e20;
+        --color-surf: #2e2e33;
+        --color-surf-light: #3e3e44;
+        --color-text-main: #e2e2e2;
+        --color-text-sec: #b5b5b5;
+        --color-accent-amber: #F2A900;
+        --color-accent-blue: #00d2ff;
+        --color-border: rgba(255, 255, 255, 0.08);
+        --transition-base: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        {{- with .buttons }}
-        <style>
-            .grid-buttons {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-                width: 100%;
-                max-width: 700px;
-                margin: 0 auto;
-            }
+    /* Sobrescribir el límite estrecho de PaperMod en la Home */
+    .main {
+        max-width: 1200px !important;
+        padding: 0 20px;
+    }
 
-            @media (max-width: 768px) {
-                .grid-buttons {
-                    grid-template-columns: 1fr;
-                }
-            }
+    .home-container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 15px 0 80px 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: var(--color-text-main);
+    }
 
-            .btn-logo {
-                height: 48px;
-                width: auto;
-                max-width: 90%;
-                margin-bottom: 8px;
-            }
+    /* Hero Section y Novedad (Círculo) */
+    .hero-wrapper-rel {
+        position: relative;
+        width: 100%;
+        padding: 20px 0 45px 0;
+    }
 
-            .btn-subtext {
-                font-size: 0.8rem;
-                opacity: 0.8;
-                font-weight: 500;
-            }
+    .hero-section {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 760px;
+    }
 
-            .grid-buttons .button {
-                background: transparent !important;
-                box-shadow: none !important;
-                border: none !important;
-            }
+    .hero-tag {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-accent-amber);
+        margin-bottom: 15px;
+    }
 
-            .grid-buttons .button:hover {
-                background: rgba(255, 255, 255, 0.05) !important;
-                /* Ligero resplandor al pasar el ratón para dar confirmación visual de que es clicable */
-            }
-        </style>
-        <div class="buttons grid-buttons">
-            {{- range . }}
-            <a class="button" href="{{ trim .url " " }}" rel="noopener" title="{{ .name }}">
-                <span class="button-inner"
-                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 12px 0;">
-                    {{- if .icon }}
-                    <img src="{{ .icon | relURL }}" alt="{{ .name }}" class="btn-logo">
-                    {{- else }}
-                    <span class="btn-subtext">{{ .name }}</span>
-                    {{- end }}
-                </span>
+    .hero-title {
+        font-size: 1.55rem;
+        font-weight: 500;
+        line-height: 1.6;
+        margin: 0 auto;
+        letter-spacing: -0.01em;
+        color: #ffffff;
+    }
+
+    /* Caja de Novedad en forma de Círculo */
+    .hero-aside-novelty {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: rgba(242, 169, 0, 0.03);
+        border: 1.5px dashed rgba(242, 169, 0, 0.35);
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: var(--transition-base);
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+        
+        /* Posicionamiento flotante absoluto a la derecha */
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .hero-aside-novelty:hover {
+        border-style: solid;
+        border-color: var(--color-accent-amber);
+        background: rgba(242, 169, 0, 0.06);
+        box-shadow: 0 0 22px rgba(242, 169, 0, 0.2);
+        transform: translateY(-50%) scale(1.03);
+    }
+
+    .novelty-badge {
+        display: inline-block;
+        background: var(--color-accent-amber);
+        color: #111111;
+        font-size: 0.62rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        padding: 2px 7px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        letter-spacing: 0.04em;
+    }
+
+    .novelty-title {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1.35;
+        margin: 0 0 10px 0;
+        padding: 0 4px;
+    }
+
+    .novelty-link {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--color-accent-amber);
+        text-decoration: none;
+        transition: var(--transition-base);
+    }
+
+    .novelty-link:hover {
+        color: #ffffff;
+    }
+
+    .novelty-link-arrow {
+        margin-left: 4px;
+        transition: var(--transition-base);
+    }
+
+    .novelty-link:hover .novelty-link-arrow {
+        transform: translateX(3px);
+    }
+
+    /* Grid del Ecosistema de Servicios */
+    .services-title {
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 35px;
+        color: #ffffff;
+        letter-spacing: -0.02em;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 60px;
+    }
+
+    .card-service {
+        background: var(--color-surf);
+        border: 1px solid var(--color-border);
+        border-radius: 14px;
+        padding: 28px;
+        text-decoration: none;
+        color: var(--color-text-main);
+        transition: var(--transition-base);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 240px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Línea superior interactiva en las tarjetas */
+    .card-service::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: transparent;
+        transition: var(--transition-base);
+    }
+
+    /* Colores acentuados por servicio en hover */
+    .card-service.s-ahorro:hover::after { background: var(--color-accent-amber); }
+    .card-service.s-flash:hover::after { background: #ff4a4a; }
+    .card-service.s-vision:hover::after { background: #4caf50; }
+    .card-service.s-radar:hover::after { background: var(--color-accent-blue); }
+    .card-service.s-tech:hover::after { background: #9c27b0; }
+    .card-service.s-solar:hover::after { background: #ff9800; }
+
+    .card-service:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        background: var(--color-surf-light);
+    }
+
+    .service-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 22px;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .service-brand-logo {
+        height: 32px;
+        width: auto;
+        display: block;
+        border-radius: 6px;
+    }
+
+    .service-meta {
+        font-size: 0.72rem;
+        color: var(--color-accent-amber);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        flex-shrink: 0;
+        text-align: right;
+    }
+
+    .service-meta-blue {
+        color: var(--color-accent-blue);
+    }
+
+    .service-meta-green {
+        color: #4caf50;
+    }
+
+    .service-meta-purple {
+        color: #b388ff;
+    }
+
+    .service-desc {
+        font-size: 0.88rem;
+        color: var(--color-text-sec);
+        line-height: 1.5;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    .service-footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 15px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--color-text-sec);
+        transition: var(--transition-base);
+    }
+
+    .card-service:hover .service-footer {
+        color: #ffffff;
+    }
+
+    .service-arrow {
+        margin-left: 6px;
+        transition: var(--transition-base);
+    }
+
+    .card-service:hover .service-arrow {
+        transform: translateX(4px);
+    }
+
+    /* Sección de Facturas ("Trae tu factura") */
+    .invoice-section {
+        background: linear-gradient(135deg, rgba(46, 46, 51, 0.6) 0%, rgba(30, 30, 35, 0.8) 100%);
+        border: 1px dashed rgba(255, 255, 255, 0.15);
+        border-radius: 16px;
+        padding: 40px;
+        margin-bottom: 60px;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .invoice-info {
+        flex: 1;
+    }
+
+    .badge-upcoming {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--color-accent-amber);
+        padding: 4px 12px;
+        border-radius: 30px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: inline-block;
+        margin-bottom: 12px;
+    }
+
+    .invoice-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 0 12px 0;
+        color: #ffffff;
+    }
+
+    .invoice-desc {
+        font-size: 0.95rem;
+        color: var(--color-text-sec);
+        line-height: 1.55;
+        margin: 0;
+    }
+
+    /* Mockup de Carga del PDF */
+    .invoice-upload-mock {
+        width: 280px;
+        background: rgba(0, 0, 0, 0.25);
+        border: 2px dashed rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 30px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.6;
+        transition: var(--transition-base);
+        user-select: none;
+    }
+
+    .invoice-section:hover .invoice-upload-mock {
+        opacity: 0.9;
+        border-color: var(--color-accent-amber);
+        background: rgba(242, 169, 0, 0.01);
+    }
+
+    .upload-icon {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+    }
+
+    .upload-text {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--color-text-main);
+        margin-bottom: 4px;
+    }
+
+    .upload-subtext {
+        font-size: 0.7rem;
+        color: var(--color-text-sec);
+    }
+
+    /* Alertas / Noticias Dinámicas (Content) */
+    .dynamic-content {
+        margin-top: 40px;
+        border-top: 1px solid var(--color-border);
+        padding-top: 45px;
+    }
+
+    .dynamic-content-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        color: #ffffff;
+    }
+
+    /* Responsividad */
+    @media (max-width: 950px) {
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .hero-wrapper-rel {
+            padding-bottom: 20px;
+        }
+        .hero-aside-novelty {
+            position: relative;
+            right: auto;
+            top: auto;
+            transform: none;
+            margin: 25px auto 10px auto;
+        }
+        .hero-aside-novelty:hover {
+            transform: scale(1.03);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 1.45rem;
+            line-height: 1.5;
+        }
+        .services-title {
+            font-size: 1.5rem;
+        }
+        .invoice-section {
+            flex-direction: column;
+            padding: 30px;
+            gap: 25px;
+        }
+        .invoice-upload-mock {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 550px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+        .card-service {
+            min-height: auto;
+        }
+    }
+</style>
+
+<div class="home-container">
+    
+    <!-- Hero / Explicación Inicial y Novedad -->
+    <div class="hero-wrapper-rel">
+        <header class="hero-section">
+            <span class="hero-tag">Inteligencia Energética Peninsular</span>
+            <h1 class="hero-title">
+                Inteligencia energética aplicada al mercado ibérico. Procesamos grandes volúmenes de datos sectoriales para ayudarte a predecir precios, entender las tendencias del mercado y optimizar tu consumo eléctrico.
+            </h1>
+        </header>
+
+        <!-- Novedad (Círculo) -->
+        <aside class="hero-aside-novelty">
+            <span class="novelty-badge">Novedad</span>
+            <h3 class="novelty-title">Estudio en profundidad de Holaluz</h3>
+            <a href="https://radar.powertrader.es/pdf/estudio-en-profundidad-holaluz.html" class="novelty-link" target="_blank" rel="noopener">
+                Leer PDF <span class="novelty-link-arrow">→</span>
             </a>
-            {{- end }}
+        </aside>
+    </div>
+
+    <!-- Secciones de Servicios -->
+    <section>
+        <h2 class="services-title">Explorar Servicios y Canales</h2>
+        <div class="services-grid">
+            
+            <!-- 1. PowerAhorro -->
+            <a href="https://ahorro.powertrader.es/" class="card-service s-ahorro" title="PowerAhorro">
+                <div>
+                    <div class="service-header">
+                        <img src="{{ "PowerAhorro.svg" | relURL }}" alt="PowerAhorro" class="service-brand-logo">
+                        <span class="service-meta">Actualiza 21:00</span>
+                    </div>
+                    <p class="service-desc">
+                        Es una guía de ahorro interactiva que ofrece herramientas para identificar las horas más baratas del día siguiente. Se actualiza a las 21:00 del día anterior.
+                    </p>
+                </div>
+                <div class="service-footer">
+                    <span>Ahorrar ahora</span><span class="service-arrow">→</span>
+                </div>
+            </a>
+
+            <!-- 2. Energyflash -->
+            <a href="https://energyflash.powertrader.es/" class="card-service s-flash" title="EnergyFlash">
+                <div>
+                    <div class="service-header">
+                        <img src="{{ "Energyflash.svg" | relURL }}" alt="EnergyFlash" class="service-brand-logo">
+                        <span class="service-meta" style="color: #ff4a4a;">Actualiza 09:00</span>
+                    </div>
+                    <p class="service-desc">
+                        Análisis diario de las variaciones de precio en el mercado mayorista de electricidad (OMIE), de gas (MIBGAS), del petróleo (BRENT) y otros índices internacionales. Se actualiza a las 09:00
+                    </p>
+                </div>
+                <div class="service-footer">
+                    <span>Ver informe diario</span><span class="service-arrow">→</span>
+                </div>
+            </a>
+
+            <!-- 3. EnergyVision -->
+            <a href="https://energyvision.powertrader.es/" class="card-service s-vision" title="EnergyVision">
+                <div>
+                    <div class="service-header">
+                        <img src="{{ "EnergyVision.svg" | relURL }}" alt="EnergyVision" class="service-brand-logo">
+                        <span class="service-meta-green">Mensual</span>
+                    </div>
+                    <p class="service-desc">
+                        Módulo automatizado que recopila, analiza y resume de forma visual todo lo ocurrido en el mercado eléctrico peninsular español durante el mes vencido. Contiene análisis de precio medio mensual, balance de demanda y generación y perspectiva macroeconómica.
+                    </p>
+                </div>
+                <div class="service-footer">
+                    <span>Ver informe mensual</span><span class="service-arrow">→</span>
+                </div>
+            </a>
+
+            <!-- 4. PowerRadar -->
+            <a href="https://radar.powertrader.es/" class="card-service s-radar" title="PowerRadar">
+                <div>
+                    <div class="service-header">
+                        <img src="{{ "PowerRadar.svg" | relURL }}" alt="PowerRadar" class="service-brand-logo">
+                        <span class="service-meta-blue">Análisis Técnico</span>
+                    </div>
+                    <p class="service-desc">
+                        Vertical de análisis técnico y estudios en profundidad.
+                    </p>
+                </div>
+                <div class="service-footer">
+                    <span>Explorar estudios</span><span class="service-arrow">→</span>
+                </div>
+            </a>
+
+            <!-- 5. EnergyTech -->
+            <a href="https://energytech.powertrader.es/" class="card-service s-tech" title="EnergyTech">
+                <div>
+                    <div class="service-header">
+                        <img src="{{ "EnergyTech.svg" | relURL }}" alt="EnergyTech" class="service-brand-logo">
+                        <span class="service-meta-purple">Tecnología</span>
+                    </div>
+                    <p class="service-desc">
+                        Espacio dedicado a la innovación tecnológica, el análisis de sistemas de almacenamiento detrás del contador (BESS) y optimización inteligente de redes.
+                    </p>
+                </div>
+                <div class="service-footer">
+                    <span>Conocer tecnología</span><span class="service-arrow">→</span>
+                </div>
+            </a>
+
+            <!-- 6. PowerSolar -->
+            <a href="https://solar.powertrader.es/" class="card-service s-solar" title="PowerSolar">
+                <div>
+                    <div class="service-header">
+                        <img src="{{ "ProductoSolar.svg" | relURL }}" alt="PowerSolar" class="service-brand-logo">
+                        <span class="service-meta" style="color: #ff9800;">Solar</span>
+                    </div>
+                    <p class="service-desc">
+                        Modelado técnico-financiero de autoconsumo colectivo a través de red y dimensionamiento de generación fotovoltaica distribuida.
+                    </p>
+                </div>
+                <div class="service-footer">
+                    <span>Modelar proyecto</span><span class="service-arrow">→</span>
+                </div>
+            </a>
+
         </div>
-        {{- end }}
-    </div>
-    {{- end}}
-</div>
+    </section>
 
-{{- if .Content }}
-<div class="post-content" style="margin-top: 2rem; display: flex; justify-content: center;">
-    <div style="width: 100%; max-width: 650px; text-align: left;">
-        {{ .Content }}
-    </div>
-</div>
-{{- end }}
+    <!-- Novedad / Trae tu factura -->
+    <section class="invoice-section">
+        <div class="invoice-info">
+            <span class="badge-upcoming">Próximamente</span>
+            <h3 class="invoice-title">Optimiza tu factura de la luz</h3>
+            <p class="invoice-desc">
+                ¿Sospechas que estás pagando de más? Muy pronto abriremos una nueva sección donde podrás subir tu factura eléctrica en PDF. 
+                Analizaremos tu curva de consumo real periodo a periodo y te recomendaremos de forma totalmente independiente la mejor tarifa del mercado para maximizar tu ahorro.
+            </p>
+        </div>
+        <div class="invoice-upload-mock">
+            <span class="upload-icon">📄</span>
+            <span class="upload-text">Subir factura en PDF</span>
+            <span class="upload-subtext">Estudio personalizado gratuito</span>
+        </div>
+    </section>
 
+    <!-- Noticias Dinámicas -->
+    {{- if .Content }}
+    <section class="dynamic-content">
+        <h4 class="dynamic-content-title">📢 Alerta de Mercado y Novedades</h4>
+        <div class="post-content">
+            {{ .Content }}
+        </div>
+    </section>
+    {{- end }}
+
+</div>
 {{- end }}
